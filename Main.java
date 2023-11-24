@@ -7,5 +7,6 @@ public class Main {
         if(a > 0) {
             System.out.println("true");
         }
+        else System.out.print(false);
     }
 }
