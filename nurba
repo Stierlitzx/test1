@@ -1,0 +1,32 @@
+public class nurba {
+    public static void main(String[] args) {
+        int[] mas = { 5, 2, 9, 3, 7, 6 };
+        quickSort(mas, 0, mas.length - 1);
+        System.out.println(mas);
+    }
+
+    public static void quickSort(int[] mas, int low, int high) {
+        if (low < high) {
+            int pivotIndex = pa(mas, low, high);
+            quickSort(mas, low, pivotIndex - 1);
+            quickSort(mas, pivotIndex + 1, high);
+        }
+    }
+
+    public static int pa(int[] mas, int low, int high) {
+        int pivot = mas[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (mas[j] < pivot) {
+                i++;
+                int temp = mas[i];
+                mas[i] = mas[j];
+                mas[j] = temp;
+            }
+        }
+        int temp = mas[i + 1];
+        mas[i + 1] = mas[high];
+        mas[high] = temp;
+        return i + 1;
+    }
+}
